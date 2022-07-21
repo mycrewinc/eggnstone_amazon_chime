@@ -10,7 +10,7 @@ class ChimeDefaultVideoRenderViewFactory : PlatformViewFactory(StandardMessageCo
 {
     override fun create(context: Context?, viewId: Int, args: Any?): PlatformView
     {
-        val view = ChimeDefaultVideoRenderView(context)
+        val view = ChimeDefaultVideoRenderView(context, viewId)
         _viewIdToViewMap[viewId] = view
         return view
     }
