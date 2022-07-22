@@ -18,9 +18,11 @@ class ChimeDefaultVideoRenderView(context: Context?, id: Int) : PlatformView
 {
     private val _defaultVideoRenderView: DefaultVideoRenderView = DefaultVideoRenderView(context!!)
 
-    private val textView: TextView
+    // private val textView: TextView
 
     private val view: View
+
+    private val xmlVideoRenderView: VideoRenderView
 
     override fun getView(): View {
         return view
@@ -29,13 +31,14 @@ class ChimeDefaultVideoRenderView(context: Context?, id: Int) : PlatformView
 
     override fun dispose() {}
 
-    val videoRenderView: VideoRenderView get() = _defaultVideoRenderView
+    val videoRenderView: VideoRenderView get() = xmlVideoRenderView
 
     init {
         view = LayoutInflater.from(context!!).inflate(R.layout.item_video, null)
-        textView = TextView(context)
-        textView.textSize = 72f
-        textView.setBackgroundColor(Color.rgb(255, 255, 255))
-        textView.text = "Rendered on a native Android view (id: $id)"
+        xmlVideoRenderView = view.findViewById(R.id.video_surface);
+        // textView = TextView(context)
+        // textView.textSize = 72f
+        // textView.setBackgroundColor(Color.rgb(255, 255, 255))
+        // textView.text = "Rendered on a native Android view (id: $id)"
     }
 }
