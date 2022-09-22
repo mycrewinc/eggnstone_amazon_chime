@@ -64,7 +64,7 @@ android {
 
 dependencies {
     // https://search.maven.org/search?q=software.aws.chimesdk
-    implementation 'software.aws.chimesdk:amazon-chime-sdk:0.17.1'
-    implementation 'software.aws.chimesdk:amazon-chime-sdk-media:0.17.1'
+    implementation 'software.aws.chimesdk:amazon-chime-sdk:0.17.6'
+    implementation 'software.aws.chimesdk:amazon-chime-sdk-media:0.17.6'
     implementation 'software.aws.chimesdk:amazon-chime-sdk-machine-learning:0.1.0'
 }
