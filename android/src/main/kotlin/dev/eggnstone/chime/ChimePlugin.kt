@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.amazonaws.services.chime.sdk.meetings.audiovideo.AudioVideoFacade
 import com.amazonaws.services.chime.sdk.meetings.audiovideo.audio.activespeakerpolicy.DefaultActiveSpeakerPolicy
+import com.amazonaws.services.chime.sdk.meetings.audiovideo.video.LocalVideoConfiguration
 import com.amazonaws.services.chime.sdk.meetings.audiovideo.video.VideoRenderView
 import com.amazonaws.services.chime.sdk.meetings.session.*
 import com.amazonaws.services.chime.sdk.meetings.utils.Versioning.Companion.sdkVersion
@@ -235,7 +236,8 @@ class ChimePlugin : FlutterPlugin, MethodCallHandler
             return
         }
 
-        safeAudioVideoFacade.startLocalVideo()
+        val localVideoConfig = LocalVideoConfiguration(200)
+        safeAudioVideoFacade.startLocalVideo(localVideoConfig)
         result.success(null)
     }
 

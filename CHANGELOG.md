@@ -1,3 +1,8 @@
+## 4.2.8
+
+* Android: Updated to Chime SDK version 0.17.6.
+* Android: Use low bitrate（maxBitRateKbps: 200）
+
 ## 4.2.7
 
 * Fixed example.
