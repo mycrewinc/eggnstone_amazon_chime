@@ -11,10 +11,8 @@ class ChimeDeviceChangeObserver(private val _eventSink: EventSink) : DeviceChang
     override fun onAudioDeviceChanged(mediaDevices: List<MediaDevice>)
     {
         val jsonObject = JSONObject()
-        val eventArguments = JSONObject()
-        eventArguments.put("MediaDevices", convertMediaDevicesToJson(mediaDevices))
         jsonObject.put("Name", "OnAudioDeviceChanged")
-        jsonObject.put("Arguments", eventArguments)
+        jsonObject.put("Arguments", convertMediaDevicesToJson(mediaDevices))
         _eventSink.success(jsonObject.toString())
     }
 
