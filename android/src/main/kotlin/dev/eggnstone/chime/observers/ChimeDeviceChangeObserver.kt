@@ -13,7 +13,7 @@ class ChimeDeviceChangeObserver(private val _eventSink: EventSink) : DeviceChang
         val jsonObject = JSONObject()
         jsonObject.put("Name", "OnAudioDeviceChanged")
         jsonObject.put("Arguments", convertMediaDevicesToJson(mediaDevices))
-        _eventSink.success(jsonObject)
+        _eventSink.success(jsonObject.toString())
     }
 
     private fun convertMediaDevicesToJson(mediaDevices: List<MediaDevice>): JSONArray
