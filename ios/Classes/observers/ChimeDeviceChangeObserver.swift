@@ -17,33 +17,30 @@ public class ChimeDeviceChangeObserver : DeviceChangeObserver {
     }
     
     public func audioDeviceDidChange(freshAudioDeviceList: [MediaDevice]) {
-        _eventSink(convertMediaDevicesToJson(freshAudioDeviceList: freshAudioDeviceList))
+        _eventSink("""
+            {
+            "Name": "OnAudioDeviceChanged",
+            "Arguments": \(convertMediaDevicesToJson(freshAudioDeviceList: freshAudioDeviceList))
+            }
+            """)
     }
     
     func convertMediaDevicesToJson(freshAudioDeviceList: [MediaDevice]) -> String {
         print("convertMediaDevicesToJson")
 
-        let arguments = """
-                    \(freshAudioDeviceList.map({ (device: MediaDevice) -> String in
-                        return """
-                        {
-                        "Label": "\(device.label)",
-                        "Type": "\(device.type)",
-                        "Port": "\(device.port)",
-                        "Description": "\(device.description)"
-                        }
-                        """
-
-                    }))
-                    """
-
-        let json = """
-                    {
-                    "Name": "OnAudioDeviceChanged",
-                    "Arguments": \(arguments)
-                    }
-                    """
-
-        return json
+        return """
+            {
+            "MediaDevices": [\(freshAudioDeviceList.map({ (device: MediaDevice) -> String in
+            return """
+                {
+                "Label": "\(device.label)",
+                "Type": "\(device.type)",
+                "Port": "\(device.port)",
+                "Description": "\(device.description)"
+                }
+                """
+                }).joined(separator: ","))]
+            }
+            """
     }
 }
