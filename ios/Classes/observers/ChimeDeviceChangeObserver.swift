@@ -27,10 +27,10 @@ public class ChimeDeviceChangeObserver : DeviceChangeObserver {
                     \(freshAudioDeviceList.map({ (device: MediaDevice) -> String in
                         return """
                         {
-                        Label: \(device.label),
-                        Type: \(device.type),
-                        Port: \(device.port),
-                        Description: \(device.description)
+                        "Label": "\(device.label)",
+                        "Type": "\(device.type)",
+                        "Port": "\(device.port)",
+                        "Description": "\(device.description)"
                         }
                         """
 
