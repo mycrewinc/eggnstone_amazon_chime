@@ -75,6 +75,7 @@ class ChimePlugin : FlutterPlugin, MethodCallHandler
             "ChooseAudioDevice" -> handleChooseAudioDevice(call, result)
             "ClearViewIds" -> handleClearViewIds(call, result)
             "CreateMeetingSession" -> handleCreateMeetingSession(call, result)
+            "GetActiveAudioDevice" -> handleGetActiveAudioDevice(result)
             "GetVersion" -> result.success("Chime SDK " + sdkVersion())
             "ListAudioDevices" -> handleListAudioDevices(result)
             "Mute" -> handleMute(result)
@@ -397,6 +398,23 @@ class ChimePlugin : FlutterPlugin, MethodCallHandler
         jsonString = jsonString.substring(0, jsonString.length - 1)
         @Suppress("ConvertToStringTemplate")
         jsonString = "[" + jsonString + "]"
+        result.success(jsonString)
+    }
+
+    private fun handleGetActiveAudioDevice(result: MethodChannel.Result)
+    {
+        val safeAudioVideoFacade: AudioVideoFacade? = _audioVideoFacade
+        if (safeAudioVideoFacade == null)
+        {
+            result.error(NO_AUDIO_VIDEO_FACADE__ERROR_CODE, NO_AUDIO_VIDEO_FACADE__ERROR_MESSAGE, null)
+            return
+        }
+
+        var device = safeAudioVideoFacade.getActiveAudioDevice
+
+        jsonString = "{\"Label\": \"" + device.label + "\", \"Type\": \"" + device.type + "\", \"Port\": \"no-port\", \"Description\": \"no-description\"}"
+
+        @Suppress("ConvertToStringTemplate")
         result.success(jsonString)
     }
 
