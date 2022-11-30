@@ -119,4 +119,9 @@ class Chime {
     var params = {'Label': label};
     return _methodChannel.invokeMethod('ChooseAudioDevice', params);
   }
+
+  /// Get currently selected audio device.
+  static Future<String?> getActiveAudioDevice() async {
+    return _methodChannel.invokeMethod('GetActiveAudioDevice');
+  }
 }
