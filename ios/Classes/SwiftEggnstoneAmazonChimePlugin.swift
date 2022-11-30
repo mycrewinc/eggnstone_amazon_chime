@@ -255,7 +255,7 @@ public class SwiftEggnstoneAmazonChimePlugin: NSObject, FlutterPlugin {
     }
 
     func handleGetActiveAudioDevice(result: @escaping FlutterResult) {
-        print("【とりあえずSwift側を呼び出せてはいる】")
+        print("【activeAudioDevice】")
         if checkAudioVideoFacade(result: result, source: "GetActiveAudioDevice") == false {
             return
         }
@@ -264,15 +264,13 @@ public class SwiftEggnstoneAmazonChimePlugin: NSObject, FlutterPlugin {
 
             let device: MediaDevice = (_audioVideoFacade?.getActiveAudioDevice())!
 
-            print("【activeAudioDevice】")
-            print(device)
-            print(device.label)
-            print(device.type)
-            print(device.port)
-            print(device.description)
-
             activeAudioDevice = """
-                test
+                {
+                "Label": "\(device.label)",
+                "Type": "\(device.type)",
+                "Port": "\(device.port)",
+                "Description": "\(device.description)"
+                }
                 """
 
             result(activeAudioDevice)
