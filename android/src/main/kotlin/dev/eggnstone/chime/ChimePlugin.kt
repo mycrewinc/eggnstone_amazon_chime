@@ -412,7 +412,9 @@ class ChimePlugin : FlutterPlugin, MethodCallHandler
 
         var device = safeAudioVideoFacade.getActiveAudioDevice()
 
-        jsonString = "{\"Label\": \"" + device?.label + "\", \"Type\": \"" + device?.type + "\", \"Port\": \"no-port\", \"Description\": \"no-description\"}"
+        var jsonString = ""
+
+        jsonString += "{\"Label\": \"" + device?.label + "\", \"Type\": \"" + device?.type + "\", \"Port\": \"no-port\", \"Description\": \"no-description\"}"
 
         @Suppress("ConvertToStringTemplate")
 
