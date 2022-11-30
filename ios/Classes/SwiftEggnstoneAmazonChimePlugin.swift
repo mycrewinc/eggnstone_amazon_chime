@@ -271,7 +271,6 @@ public class SwiftEggnstoneAmazonChimePlugin: NSObject, FlutterPlugin {
                 test
                 """
 
-            return activeAudioDevice
             result(activeAudioDevice)
         } catch {
             result(FlutterError())
