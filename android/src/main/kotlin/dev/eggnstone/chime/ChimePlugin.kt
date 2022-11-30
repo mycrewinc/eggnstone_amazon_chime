@@ -410,7 +410,7 @@ class ChimePlugin : FlutterPlugin, MethodCallHandler
             return
         }
 
-        var device: MediaDevice? = safeAudioVideoFacade.getActiveAudioDevice()
+        var device = safeAudioVideoFacade.getActiveAudioDevice()
 
         var jsonString = ""
 
