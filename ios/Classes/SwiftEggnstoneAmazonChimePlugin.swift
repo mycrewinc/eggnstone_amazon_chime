@@ -268,12 +268,7 @@ public class SwiftEggnstoneAmazonChimePlugin: NSObject, FlutterPlugin {
             print(device)
 
             activeAudioDevice = """
-                {
-                "Label": "\(device.label)",
-                "Type": "\(device.type)",
-                "Port": "\(device.port)",
-                "Description": "\(device.description)"
-                }
+                test
                 """
 
             return activeAudioDevice
