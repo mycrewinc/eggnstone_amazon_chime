@@ -1,3 +1,7 @@
+## 4.2.10
+* Added get active device function.
+* iOS: Fixed device changed observer.
+
 ## 4.2.8
 
 * Android: Updated to Chime SDK version 0.17.6.
