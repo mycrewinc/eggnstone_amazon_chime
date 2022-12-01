@@ -353,6 +353,7 @@ class ChimePlugin : FlutterPlugin, MethodCallHandler
             return
         }
 
+        safeAudioVideoFacade.unbindVideoView(tileId)
         result.success(null)
     }
 
