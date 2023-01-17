@@ -57,7 +57,7 @@ class _ChimeDefaultVideoRenderViewState
       //   viewType: 'ChimeDefaultVideoRenderView',
       //   onPlatformViewCreated: (int viewId) =>
       //       widget.onPlatformViewCreated?.call(viewId),
-      // );//
+      // );
     } else if (Platform.isIOS) {
       return UiKitView(
         viewType: 'ChimeDefaultVideoRenderView',
