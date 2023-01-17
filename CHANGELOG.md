@@ -1,3 +1,6 @@
+## 4.2.11
+* android: Fixed ChimeDefaultVideoRenderView.
+
 ## 4.2.8
 
 * Android: Updated to Chime SDK version 0.17.6.
